@@ -7,6 +7,7 @@ const docIds = [
   "getting-started",
   "workspaces",
   "remote-servers",
+  "remote-operations",
   "monitoring",
   "alerts-notifications",
   "billing",
@@ -22,7 +23,7 @@ const enDoc = (id: string) =>
 
 describe("documentation navigation", () => {
   it("keeps Persian and English guide coverage in parity", () => {
-    expect(docIds).toHaveLength(10);
+    expect(docIds).toHaveLength(11);
     for (const id of docIds) {
       expect(existsSync(faDoc(id)), `fa:${id}`).toBe(true);
       expect(existsSync(enDoc(id)), `en:${id}`).toBe(true);

@@ -90,6 +90,18 @@ test('remote-server security guidance is reachable', async ({page}) => {
   await expect(page.getByRole('heading', {name: 'امنیت', level: 1})).toBeVisible();
 });
 
+test('remote operations and terminal guidance is available in both locales', async ({page}) => {
+  await page.goto('/guide/remote-operations');
+  await expect(page.getByRole('heading', {name: 'عملیات ریموت و ترمینال', level: 1})).toBeVisible();
+  await expect(page.getByRole('heading', {name: 'ترمینال سطح‌بالا', level: 2})).toBeVisible();
+  await expect(page.getByText('دریافت متریک تازه', {exact: false}).first()).toBeVisible();
+
+  await page.goto('/en/guide/remote-operations');
+  await expect(page.getByRole('heading', {name: 'Remote operations and terminal', level: 1})).toBeVisible();
+  await expect(page.getByRole('heading', {name: 'Privileged terminal', level: 2})).toBeVisible();
+  await expect(page.getByText('Collect fresh metrics', {exact: false}).first()).toBeVisible();
+});
+
 test('local search returns Persian and English documentation', async ({page}) => {
   await page.goto('/search?q=سرورهای%20ریموت');
   await expect(page.getByRole('link', {name: /سرورهای ریموت/}).first()).toBeVisible();

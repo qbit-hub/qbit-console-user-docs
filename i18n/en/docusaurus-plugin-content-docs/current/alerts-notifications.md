@@ -21,6 +21,8 @@ Metrics cover CPU, memory, disk, and 1/5/15 minute load averages. Supported oper
 
 Qbit can expose the current rule state and Triggered/Resolved event history. Historical events can remain visible after a rule definition is removed.
 
+The server detail **Alerts & deliveries** tab provides a summary of rule count, triggered alerts, pending/failed deliveries, and recent state. It reads recorded state and does not itself execute a server command.
+
 ## Notification destinations
 
 Webhook destinations are managed at Workspace scope. Endpoint/signing values are protected as write-only or masked data and should not be expected to reappear as raw secrets on reads.
@@ -34,8 +36,12 @@ To bind a destination to a rule:
 
 ## Delivery history and replay
 
-The alert-delivery surface shows deliveries and attempt history with pagination. Users with the required permission can submit an administrative replay request from delivery detail.
+The alert-delivery surface shows paginated delivery history. Current visible states include `Pending`, `In progress`, `Retry scheduled`, `Succeeded`, `Failed`, and `Suppressed`. Open delivery detail to review attempt history.
 
-::: warning
-Replaying a delivery retries notification delivery. It is not server remediation and does not execute a command on the remote machine.
+Users with the required permission can submit an administrative replay request from delivery detail.
+
+:::warning
+Replay retries notification delivery only. It is not server remediation and does not create a typed remote operation, raw shell command, or Docker action on the server.
 :::
+
+For server-operation state, see [Remote operations and terminal](/en/guide/remote-operations).

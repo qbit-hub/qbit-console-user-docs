@@ -21,6 +21,8 @@ Metricهای فعلی شامل CPU، حافظه، دیسک و load averageهای
 
 برای هر rule، Qbit می‌تواند state فعلی و eventهای `Triggered` و `Resolved` را نمایش دهد. event history ممکن است حتی بعد از حذف rule نیز برای audit باقی بماند.
 
+در صفحه جزئیات سرور، تب **هشدار و ارسال‌ها** یک خلاصه از تعداد ruleها، هشدارهای فعال، deliveryهای در انتظار/ناموفق و وضعیت‌های اخیر ارائه می‌کند. این view از state ثبت‌شده استفاده می‌کند و خودش command روی سرور اجرا نمی‌کند.
+
 ## مقصدهای اعلان
 
 در سطح Workspace می‌توانید webhook destination مدیریت کنید. مقادیر endpoint و signing secret به‌صورت write-only/محافظت‌شده مدیریت می‌شوند و readهای بعدی نباید secret خام را نمایش دهند.
@@ -34,8 +36,12 @@ Metricهای فعلی شامل CPU، حافظه، دیسک و load averageهای
 
 ## سابقه delivery
 
-صفحه **سوابق ارسال هشدار** deliveryهای انجام‌شده را با pagination نمایش می‌دهد. از صفحه جزئیات delivery می‌توانید attempt history را ببینید. اگر مجوز لازم را داشته باشید، درخواست administrative replay نیز از همان صفحه قابل ثبت است.
+صفحه **سوابق ارسال هشدار** deliveryها را با pagination نمایش می‌دهد. وضعیت‌های فعلی قابل مشاهده شامل `Pending`، `In progress`، `Retry scheduled`، `Succeeded`، `Failed` و `Suppressed` هستند. از صفحه جزئیات delivery می‌توانید attempt history را ببینید.
 
-::: warning
-Replay یک اقدام مدیریتی روی delivery است؛ این عملیات به معنی اجرای remediation روی سرور ریموت نیست.
+اگر مجوز لازم را داشته باشید، درخواست administrative replay نیز از همان صفحه قابل ثبت است.
+
+:::warning
+Replay فقط delivery اعلان را دوباره تلاش می‌کند. این عملیات remediation سرور نیست و هیچ typed remote operation، raw shell یا Docker action روی سرور ایجاد نمی‌کند.
 :::
+
+برای وضعیت خود operationهای سرور، [عملیات ریموت و ترمینال](/guide/remote-operations) را ببینید.
