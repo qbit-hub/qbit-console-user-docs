@@ -49,7 +49,7 @@ The **Containers** tab exposes a safe container projection and the currently all
 A confirmation is shown before an action. Confirming it creates a typed remote operation; the browser does not submit a raw Docker command.
 
 :::info
-Application deployment, Compose, and database-workload features are not treated as operational in this guide. This page documents only the currently merged server/container behavior.
+The Workload lifecycle is now an operational surface separate from this page. For image-workload create, validation, deploy, history/logs, stop/delete, and recovery, see [Deploy an image workload](/en/guide/workload-deployment). This page continues to cover direct server/container operations and terminal access only.
 :::
 
 ## Privileged terminal

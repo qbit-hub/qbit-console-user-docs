@@ -1,27 +1,32 @@
 # قابلیت‌های به‌زودی
 
-Qbit Console چند area آینده را در navigation نشان می‌دهد تا جهت محصول روشن باشد، اما وجود این صفحات به معنی operational بودن آن‌ها نیست.
+Qbit Console بعضی areaهای آینده را در navigation نگه می‌دارد تا جهت محصول روشن باشد، اما وجود یک صفحه رزروشده به معنی operational بودن یک محصول مستقل نیست.
 
 ## موارد فعلی Preview
 
-این قابلیت‌ها در نسخه فعلی **غیرفعال / Coming soon** هستند:
+این قابلیت‌ها در Phase 1 هنوز **غیرفعال / Coming soon** هستند:
 
 - Qbit Cloud compute و خرید سرور میزبانی‌شده توسط Qbit؛
-- انتشار Application؛
-- Database management؛
+- محصول مستقل managed database خارج از چرخه Workloads؛
+- catalog مستقل Template خارج از sourceهای فعلی Workloads؛
+- اتصال حساب‌های Git provider به‌صورت managed provider integration؛
 - Backup service؛
-- Template deployment؛
-- Git provider integration؛
 - DNS managed service؛
 - Push notification service؛
-- Container Registry میزبانی‌شده؛
+- Container Registry میزبانی‌شده توسط Qbit؛
 - npm cache میزبانی‌شده؛
 - Wallet؛
 - hourly hosting metering.
 
-## چرا در پنل نمایش داده می‌شوند؟
+:::info
+**Workloads** دیگر preview نیست. چرخه ساخت، validate، deploy، history/log، stop/delete و recovery برای workloadهای merge‌شده روی سرورهای ریموت متعلق به مشتری عملیاتی است. این راهنما فعلاً workflow مبتنی بر Container image را در [انتشار ورک‌لود با ایمیج](/guide/workload-deployment) مستند می‌کند.
+:::
 
-این صفحات برای مشخص‌کردن information architecture آینده وجود دارند. آن‌ها نباید endpoint جعلی، resource billable یا mutation ساختگی ایجاد کنند.
+گزینه‌های source مانند Compose، Git و database template که داخل Workloads نمایش داده می‌شوند بخشی از همان مدل واحد Workload هستند؛ آن‌ها را با محصولات مستقل preview مانند managed database، template catalog یا Git-provider account integration یکی ندانید.
+
+## چرا بعضی صفحات هنوز نمایش داده می‌شوند؟
+
+صفحات رزروشده برای مشخص‌کردن information architecture آینده وجود دارند. آن‌ها نباید endpoint جعلی، resource billable یا mutation ساختگی ایجاد کنند.
 
 ## قابلیت‌های فعال فعلی
 
@@ -29,12 +34,13 @@ Qbit Console چند area آینده را در navigation نشان می‌دهد 
 
 - Workspace و membership؛
 - Remote server inventory؛
+- عملیات ریموت تایپ‌شده و ترمینال مجاز؛
 - Passive resource monitoring و history؛
-- Resource alerts؛
-- Webhook notification destinations و delivery history؛
+- Resource alerts و notification destinationهای فعال؛
+- Workloads روی سرورهای ریموت متعلق به مشتری؛
 - Read-only billing visibility؛
 - Panel preferences و account sessions.
 
-::: warning
-تا زمانی که یک قابلیت از حالت **به‌زودی** خارج نشده و workflow واقعی آن در کنسول فعال نشده است، برای محیط production روی آن برنامه‌ریزی عملیاتی نکنید.
+:::warning
+برای قابلیت‌هایی که همچنان **به‌زودی** هستند، تا زمانی که workflow واقعی آن‌ها merge و در Console فعال نشده است برنامه‌ریزی production انجام ندهید.
 :::

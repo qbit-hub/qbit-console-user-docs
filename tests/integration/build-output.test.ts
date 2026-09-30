@@ -28,17 +28,21 @@ describe("Docusaurus production output", () => {
   it("preserves representative public guide routes", () => {
     expect(read("guide/remote-servers.html")).toContain("سرورهای ریموت");
     expect(read("guide/remote-operations.html")).toContain("عملیات ریموت و ترمینال");
+    expect(read("guide/workload-deployment.html")).toContain("انتشار ورک‌لود با ایمیج");
     expect(read("guide/security.html")).toContain("هیچ secret خامی");
     expect(read("en/guide/remote-servers.html")).toContain("Remote servers");
     expect(read("en/guide/remote-operations.html")).toContain("Remote operations and terminal");
+    expect(read("en/guide/workload-deployment.html")).toContain("Deploy an image workload");
     expect(read("en/guide/security.html")).toContain("Never store raw secrets");
   });
 
   it("ships local search indexes and locally bundled brand assets", () => {
     expect(findSearchIndex()).toContain("سرورهای ریموت");
     expect(findSearchIndex()).toContain("عملیات ریموت و ترمینال");
+    expect(findSearchIndex()).toContain("انتشار ورک‌لود با ایمیج");
     expect(findSearchIndex("en")).toContain("Remote servers");
     expect(findSearchIndex("en")).toContain("Remote operations and terminal");
+    expect(findSearchIndex("en")).toContain("Deploy an image workload");
     expect(read("favicon.svg")).toContain("svg");
     expect(read("index.html")).toContain("favicon.svg");
   });

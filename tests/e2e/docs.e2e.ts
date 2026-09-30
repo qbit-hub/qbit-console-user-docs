@@ -102,6 +102,22 @@ test('remote operations and terminal guidance is available in both locales', asy
   await expect(page.getByText('Collect fresh metrics', {exact: false}).first()).toBeVisible();
 });
 
+test('image workload deployment guidance is operational in both locales', async ({page}) => {
+  await page.goto('/guide/workload-deployment');
+  await expect(page.getByRole('heading', {name: 'انتشار ورک‌لود با ایمیج', level: 1})).toBeVisible();
+  await expect(page.getByText('سرور شخص ثالث متعلق به مشتری', {exact: false}).first()).toBeVisible();
+  await expect(page.getByText('write-only', {exact: false}).first()).toBeVisible();
+  await expect(page.getByText('لاگ‌های سانسورشده ورک‌لود', {exact: false}).first()).toBeVisible();
+  await expect(page.locator('html')).toHaveAttribute('dir', 'rtl');
+
+  await page.goto('/en/guide/workload-deployment');
+  await expect(page.getByRole('heading', {name: 'Deploy an image workload', level: 1})).toBeVisible();
+  await expect(page.getByText('customer-owned third-party remote servers', {exact: false}).first()).toBeVisible();
+  await expect(page.getByText('write-only', {exact: false}).first()).toBeVisible();
+  await expect(page.getByText('redacted workload logs', {exact: false}).first()).toBeVisible();
+  await expect(page.locator('html')).toHaveAttribute('dir', 'ltr');
+});
+
 test('local search returns Persian and English documentation', async ({page}) => {
   await page.goto('/search?q=سرورهای%20ریموت');
   await expect(page.getByRole('link', {name: /سرورهای ریموت/}).first()).toBeVisible();

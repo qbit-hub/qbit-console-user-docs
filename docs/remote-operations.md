@@ -49,7 +49,7 @@ stateهای فعلی عبارت‌اند از:
 قبل از action، confirmation نمایش داده می‌شود. تأیید action یک typed operation می‌سازد؛ مرورگر raw Docker command ارسال نمی‌کند.
 
 :::info
-قابلیت‌های application deployment، Compose و database workload در این راهنما operational فرض نشده‌اند. فقط behavior فعلی merge‌شده‌ی سرور/کانتینر مستند شده است.
+چرخه‌عمر Workload اکنون یک سطح عملیاتی جدا از این صفحه است. برای ساخت، اعتبارسنجی، انتشار، history/log، stop/delete و recovery ورک‌لود مبتنی بر image، [راهنمای انتشار ورک‌لود با ایمیج](/guide/workload-deployment) را ببینید. این صفحه همچنان فقط عملیات مستقیم سرور/کانتینر و ترمینال را پوشش می‌دهد.
 :::
 
 ## ترمینال سطح‌بالا

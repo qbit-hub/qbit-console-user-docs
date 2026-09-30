@@ -6,6 +6,7 @@ const sidebars: SidebarsConfig = {
     'workspaces',
     'remote-servers',
     'remote-operations',
+    'workload-deployment',
     'monitoring',
     'alerts-notifications',
     'billing',
